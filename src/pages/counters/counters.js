@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Counters = (props) => {
-
     return (
         <div className="row">
             {props.counters.map(counter => <div className='col-sm-3 col-lg-3 col-md-3 book-list pb-4'
@@ -18,14 +17,9 @@ const Counters = (props) => {
                         <a className="page-link"
                            onClick={() => props.plusOne(counter.id)}>+</a>
                     </li>}
-
                     {counter.status === 'special' &&
-                    <li className="page-item"><a className="page-link"></a></li>}
-
-
-
+                    <li className="page-item"><a className="page-link">{counter.number}</a></li>}
                 </ul>
-
             </div>)
             }
         </div>

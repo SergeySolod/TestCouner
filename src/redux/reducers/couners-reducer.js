@@ -2,6 +2,7 @@ const ADD_COUNT = 'TestBlocks/blocks-reducer/ADD_COUNT';
 const REMOVE_COUNT = 'TestBlocks/blocks-reducer/REMOVE_COUNT';
 const PLUS_ONE = 'TestBlocks/blocks-reducer/PLUS_ONE';
 const MINUS_ONE = 'TestBlocks/blocks-reducer/MINUS_ONE';
+export const PLUS_ONE_EVERY_SECOND = 'TestBlocks/blocks-reducer/PLUS_ONE_EVERY_SECOND';
 
 let initialState = [];
 
@@ -29,7 +30,14 @@ const countersReducer = (state = initialState, {type, id, number, status}) => {
                 return count;
             })
         }
-
+        case PLUS_ONE_EVERY_SECOND: {
+            return [...state].map(count => {
+                if (count.status === 'special') {
+                    return {...count, number: count.number + 1}
+                }
+                return count;
+            })
+        }
         default:
             return state;
     }
