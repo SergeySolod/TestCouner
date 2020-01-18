@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk'
 import countersReducer from "./reducers/couners-reducer";
 
 let reducers = combineReducers({
-    cunters: countersReducer
+    counters: countersReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

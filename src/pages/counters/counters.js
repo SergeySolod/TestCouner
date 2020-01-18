@@ -1,17 +1,27 @@
 import React from 'react'
-import ButtonCounter from './buttonCounter'
 
-const Counters = () => {
+const Counters = (props) => {
+        if (!props.counters) {
+        return <div>Загрузка...</div>
+    }
     return (
-        <div>
-            <ButtonCounter/>
-            <ul className="pagination pagination-lg">
-                <li className="page-item active"><a className="page-link" href="#">-</a></li>
-                <li className="page-item"><a className="page-link" href="#">Значение</a></li>
-                <li className="page-item active"><a className="page-link" href="#">+</a></li>
-            </ul>
+        <div className="row">
+            {props.counters.map(counter => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
+                                                key={counter.id}>
+                <ul className="pagination pagination-lg">
+                    <li className="page-item active"><a className="page-link" onClick={() => props.plusOne(0)}>-</a></li>
+                    <li className="page-item"><a className="page-link" >{counter.number}</a></li>
+                    <li className="page-item active"><a className="page-link" onClick={() => props.minusOne(0)}>+</a></li>
+                </ul>
+            </div>)
+            }
         </div>
     )
 }
+
+
+
+
+
 
 export default Counters;
