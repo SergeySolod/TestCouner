@@ -1,11 +1,21 @@
 import React, {useEffect} from 'react'
-import {connect} from 'react-redux'
-import {addCount} from "../../redux/reducers/couners-reducer";
 
 const ButtonCounter = (props) => {
+    const everyFourth = (length) => {
+        // residue - остаток от деления длины массива на 4
+        const residue = length % 4
+        if (residue === 0) {
+            return 'special'
+        }
+        if (residue != 0) {
+            return 'simple'
+        }
+
+    }
+
         return (
-        <div className='pb-3'>
-            <button onClick={() => props.addCount((new Date()).getTime(), 0)} className="btn btn-primary">Добавить элемент-счётчик</button>
+        <div className='pb-4'>
+            <button onClick={() => props.addCount(props.length + 1, 0, everyFourth(props.length + 1))} className="btn btn-primary">Добавить элемент-счётчик</button>
         </div>
     )
 }
