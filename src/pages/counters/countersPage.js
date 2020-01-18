@@ -8,7 +8,7 @@ const CountersPage = (props) => {
         return (
         <div>
             <ButtonCounter addCount={props.addCount}/>
-            <Counters counters={props.counters}/>
+            <Counters counters={props.counters} plusOne={props.plusOne} minusOne={props.minusOne}/>
         </div>
     )
 }

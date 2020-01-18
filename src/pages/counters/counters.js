@@ -9,9 +9,9 @@ const Counters = (props) => {
             {props.counters.map(counter => <div className='col-sm-3 col-lg-3 col-md-3 book-list'
                                                 key={counter.id}>
                 <ul className="pagination pagination-lg">
-                    <li className="page-item active"><a className="page-link" onClick={() => props.plusOne(0)}>-</a></li>
+                    <li className="page-item active"><a className="page-link" onClick={() => props.minusOne(counter.id)}>-</a></li>
                     <li className="page-item"><a className="page-link" >{counter.number}</a></li>
-                    <li className="page-item active"><a className="page-link" onClick={() => props.minusOne(0)}>+</a></li>
+                    <li className="page-item active"><a className="page-link" onClick={() => props.plusOne(counter.id)}>+</a></li>
                 </ul>
             </div>)
             }
