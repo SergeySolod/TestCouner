@@ -8,12 +8,15 @@ let initialState = [];
 
 const countersReducer = (state = initialState, {type, id, number, status}) => {
     switch (type) {
+        // создание счётчика
             case ADD_COUNT:
             const count = {id, number, status}
             return [...state, count]
+        // удаление счётчика
         case REMOVE_COUNT: {
             return [...state].filter(count => count.id !== id);
         }
+        // плюс один к значению конкретного счётчика (простого)
         case PLUS_ONE: {
             return [...state].map(count => {
                 if (count.id === id) {
@@ -22,6 +25,7 @@ const countersReducer = (state = initialState, {type, id, number, status}) => {
                 return count;
             })
         }
+        // минус один к значению конкретного счётчика (простого)
         case MINUS_ONE: {
             return [...state].map(count => {
                 if (count.id === id) {
@@ -30,6 +34,7 @@ const countersReducer = (state = initialState, {type, id, number, status}) => {
                 return count;
             })
         }
+        // плюс один каждую секунду к значению конкретного счётчика (специального)
         case PLUS_ONE_EVERY_SECOND: {
             return [...state].map(count => {
                 if (count.status === 'special') {

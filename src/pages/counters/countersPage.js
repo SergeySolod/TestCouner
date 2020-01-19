@@ -7,10 +7,13 @@ import {counterLenght, counterMaxArray} from "../../redux/selectors/counters-sel
 import store from "../../redux/redux-store";
 import {PLUS_ONE_EVERY_SECOND} from '../../redux/reducers/couners-reducer'
 
+// сделано вне компоненты с целью избежать вызова этой функции при повторной отрисовки комопненты в случае обновления state
+// а это случается очень часто, чаще раза в секунду
 setInterval(() => {
     store.dispatch({type: PLUS_ONE_EVERY_SECOND})
 }, 1000)
 
+// контейнерная компонента для отрисовки чистых компонента (классовые не использовались вообще, только функциональные)
 const CountersPage = (props) => {
         return (
         <div>
