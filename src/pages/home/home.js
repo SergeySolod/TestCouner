@@ -8,6 +8,7 @@ const Home = () => {
                 <p className="lead">
                     <b>Моё решение:</b> https://github.com/SergeySolod/TestCouner<br/>
                     <b>Технологии:</b> React.js, React-Router, Redux, React-Redux, Bootstrap, HTML, CSS<br/>
+                    <b>Видеообзор:</b> https://youtu.be/hJaYHRkkG3g<br/>
                 </p>
                 <h1 className="display-4">Задание</h1>
                 <p className="lead">
