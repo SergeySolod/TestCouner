@@ -3,12 +3,18 @@ import ButtonCounter from './buttonCounter'
 import {connect} from 'react-redux'
 import {addCount, plusOne, minusOne, removeCounter} from "../../redux/reducers/couners-reducer";
 import Counters from "./counters";
-import {counterLenght} from "../../redux/selectors/counters-selector";
+import {counterLenght, counterMaxArray} from "../../redux/selectors/counters-selector";
+import store from "../../redux/redux-store";
+import {PLUS_ONE_EVERY_SECOND} from '../../redux/reducers/couners-reducer'
+
+setInterval(() => {
+    store.dispatch({type: PLUS_ONE_EVERY_SECOND})
+}, 1000)
 
 const CountersPage = (props) => {
         return (
         <div>
-            <ButtonCounter addCount={props.addCount} length={props.length}/>
+            <ButtonCounter addCount={props.addCount} length={props.length} maxArray={props.maxArray}/>
             <Counters counters={props.counters} plusOne={props.plusOne} minusOne={props.minusOne} removeCounter={props.removeCounter}/>
         </div>
     )
@@ -18,6 +24,7 @@ const mapStateToProps = (state) => {
     return {
         counters: state.counters,
         length: counterLenght(state),
+        maxArray: counterMaxArray(state)
     }
 }
 

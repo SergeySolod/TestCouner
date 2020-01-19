@@ -8,7 +8,7 @@ let initialState = [];
 
 const countersReducer = (state = initialState, {type, id, number, status}) => {
     switch (type) {
-        case ADD_COUNT:
+            case ADD_COUNT:
             const count = {id, number, status}
             return [...state, count]
         case REMOVE_COUNT: {
